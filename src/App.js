@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Nav from './components/nav/Nav';
+import HeaderContainer from './components/header/HeaderContainer';
 
 const theme = createMuiTheme({
   palette: {
@@ -28,7 +30,8 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <CssBaseline />
-          <h1>Hello</h1>
+          <Nav />
+          <HeaderContainer />
         </div>
       </MuiThemeProvider>
     );
