@@ -21,11 +21,13 @@ const styles = theme => ({
     color: '#fff',
     fontSize: 34,
     alignCenter: 'center',
+    letterSpacing: 1.5,
   },
   subtitle: {
     alignCenter: 'center',
     color: '#fff',
     fontSize: 22,
+    letterSpacing: 1,
   }
 });
 

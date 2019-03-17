@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Nav from './components/nav/Nav';
 import HeaderContainer from './components/header/HeaderContainer';
+// import LeftNav from './components/nav/LeftNav';
 
 const theme = createMuiTheme({
   palette: {
@@ -21,8 +22,7 @@ const theme = createMuiTheme({
     ],
     // fontSize: 12,
   },
-}
-);
+});
 
 class App extends Component {
   render() {
@@ -32,6 +32,7 @@ class App extends Component {
           <CssBaseline />
           <Nav />
           <HeaderContainer />
+          {/* <LeftNav /> */}
         </div>
       </MuiThemeProvider>
     );
