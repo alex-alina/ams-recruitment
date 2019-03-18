@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import NavContainer from './components/nav/NavContainer';
 import HeaderContainer from './components/header/HeaderContainer';
+import JobDescriptionContainer from './components/job-description/JobDescriptionContainer';
 
 const theme = createMuiTheme({
   palette: {
@@ -39,7 +41,7 @@ class App extends Component {
           <NavContainer />
           <HeaderContainer />
           <main>
-            
+            <Route exact path='/' component={JobDescriptionContainer} />
           </main>
         </div>
       </MuiThemeProvider>
