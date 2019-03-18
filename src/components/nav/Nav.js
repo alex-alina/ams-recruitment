@@ -1,5 +1,4 @@
 import React from 'react';
-// import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
@@ -11,18 +10,18 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Hidden from '@material-ui/core/Hidden';
-import LeftNav from './LeftNav';
 import { styles } from './NavStyles';
-
 
 function Nav(props) {
   const { classes } = props;
+  const handleOnClick = props.onClick;
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <Hidden only={['md', 'lg', 'xl']}>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+            <IconButton onClick={handleOnClick} className={classes.menuButton} color="inherit" aria-label="Open drawer">
               <MenuIcon />
             </IconButton>
           </Hidden>
@@ -31,41 +30,13 @@ function Nav(props) {
           </Typography>
           <Hidden only={['xs', 'sm']}>
             <ul className={classes.navList}>
-              <li className={classes.navLi}>
-                <Link>
-                  <Typography className={classes.navLinkFont} variant="h6" color="inherit" noWrap>
-                    Home
-                  </Typography>
-                </Link>
-              </li>
-              <li className={classes.navLi}>
-                <Link>
-                  <Typography className={classes.navLinkFont} variant="h6" color="inherit" noWrap>
-                    Jobs
-                  </Typography>
-                </Link>
-              </li>
-              <li className={classes.navLi}> 
-                <Link>
-                  <Typography className={classes.navLinkFont} variant="h6" color="inherit" noWrap>
-                    About
-                  </Typography>
-                </Link>
-              </li>
-              <li className={classes.navLi}>
-                <Link>
-                  <Typography className={classes.navLinkFont} variant="h6" color="inherit" noWrap>
-                    Departments
-                  </Typography>
-                </Link>
-              </li>
-              <li className={classes.navLi}>
-                <Link>
-                  <Typography className={classes.navLinkFont} variant="h6" color="inherit" noWrap>
-                    Contact
-                  </Typography>
-                </Link>
-              </li>
+              {['Home', 'Jobs', 'About', 'Departments', 'Contact'].map((text) => (
+                <li key={text} className={classes.navLi}>
+                  <Link>
+                    <Typography className={classes.navLinkFont} variant="h6" color="inherit" noWrap>{text}</Typography>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </Hidden>
           <div className={classes.grow} />
@@ -85,7 +56,6 @@ function Nav(props) {
           </Hidden>
         </Toolbar>
       </AppBar>
-      <LeftNav />
     </div>
   );
 }

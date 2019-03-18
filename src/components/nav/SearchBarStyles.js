@@ -1,39 +1,7 @@
-import { fade } from '@material-ui/core/styles/colorManipulator';
-
 export const styles = theme => ({
-  root: {
-    width: '100%',
-    zIndex: 4000,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-  },
-  logo: {
-    letterSpacing: 1,
-    marginRight: 20,
-    marginLeft:10,
-  },
-  navList: {
-    width: '40%',
-    display: 'flex',
-    justifyContent: 'space-evenly',
-  },
-  navLi: {
-    alignContent: 'center',
-  },
-  navLinkFont: {
-    fontWeight: '400',
-  },
   search: {
     position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
+    backgroundColor: '#007769CC',
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -49,9 +17,10 @@ export const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    color:'#ffffffCC'
   },
   inputRoot: {
-    color: 'inherit',
+    color: '#fff',
     width: '100%',
   },
   inputInput: {

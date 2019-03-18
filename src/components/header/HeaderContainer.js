@@ -5,15 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import background from '../../assets/images/background.png';
 import HeaderJobTitle from './HeaderJobTitle';
-
-const styles = {
-  card: {
-    position: 'relative',
-  },
-  media: {
-    height: 280,
-  },
-};
+import { styles } from './HeaderContainerStyles';
 
 function Header(props) {
   const { classes } = props;
@@ -34,4 +26,4 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles, { theme: true })(Header);

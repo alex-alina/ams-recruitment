@@ -3,44 +3,17 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
-const styles = theme => ({
-  root: {
-    position: 'absolute',
-    top: '25%',
-    bottom: '30%',
-    left: '25%',
-    right: '25%',
-    margin: 'auto',
-    width: '50%',
-    backgroundColor: '#00000073',
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-  },
-  title: {
-    color: '#fff',
-    fontSize: 34,
-    alignCenter: 'center',
-    letterSpacing: 1.5,
-  },
-  subtitle: {
-    alignCenter: 'center',
-    color: '#fff',
-    fontSize: 22,
-    letterSpacing: 1,
-  }
-});
+import { styles } from './HeaderJobTitleStyles';
 
 function HeaderJobTitle(props) {
   const { classes } = props;
-
   return (
     <div>
       <Paper className={classes.root} elevation={24}>
-        <Typography className={classes.title} variant="h6" component="h3">
+        <Typography className={classes.title}  >
           Purchasing Assistant
         </Typography>
-        <Typography className={classes.subtitle} variant="subtitle1" component="h2">
+        <Typography className={classes.subtitle} >
           Amsterdam, The Netherlands
         </Typography>
       </Paper>

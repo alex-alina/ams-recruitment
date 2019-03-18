@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Nav from './components/nav/Nav';
+import NavContainer from './components/nav/NavContainer';
 import HeaderContainer from './components/header/HeaderContainer';
-// import LeftNav from './components/nav/LeftNav';
 
 const theme = createMuiTheme({
   palette: {
@@ -20,8 +19,15 @@ const theme = createMuiTheme({
       'Roboto',
       'sans-serif',
     ],
-    // fontSize: 12,
+    useNextVariants: true,
   },
+  overrides: {
+    MuiDivider: {
+      light: {
+        backgroundColor: '#ffffff8C',
+      }
+    },
+  }
 });
 
 class App extends Component {
@@ -30,9 +36,11 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <CssBaseline />
-          <Nav />
+          <NavContainer />
           <HeaderContainer />
-          {/* <LeftNav /> */}
+          <main>
+            
+          </main>
         </div>
       </MuiThemeProvider>
     );

@@ -15,8 +15,10 @@ export const styles = {
     textAlign: 'left',
     zIndex: 1600,
   },
+ 
   leftNavLink: {
     paddingTop: 15,
     paddingBottom: 5,
+    fontWeight: '400',
   }
 };
