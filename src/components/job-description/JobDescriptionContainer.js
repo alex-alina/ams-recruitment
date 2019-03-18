@@ -88,7 +88,7 @@ function JobDescriptionContainer(props) {
       </div>
       <section className={classes.sections}>
         <Typography className={classes.sectionTitle} variant="h6">Share this job</Typography>
-        <Divider />
+        <Divider className={classes.bottomDivider} />
         <div className={classes.socialIconsContainer}>
           <Icon>
           </Icon>

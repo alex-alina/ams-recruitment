@@ -57,10 +57,13 @@ export const styles = theme => ({
     width: '200px',
     margin: 'auto',
     paddingTop: theme.spacing.unit * 4,
-    // paddingBottom: theme.spacing.unit * 0,
   },
 
   button: {
     width: '200px',
+  },
+  
+  bottomDivider: {
+    marginTop: theme.spacing.unit * 1,
   },
 });

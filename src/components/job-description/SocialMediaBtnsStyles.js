@@ -14,7 +14,8 @@ export const styles = theme => ({
     paddingTop: theme.spacing.unit * 1,
     paddingBottom: theme.spacing.unit * 1,
     marginRight: theme.spacing.unit * 2.5,
-    marginBottom: theme.spacing.unit * 2.5,
+    marginBottom: theme.spacing.unit * 3.5,
+    marginTop: theme.spacing.unit * -1.5,
     '&:hover': {
       backgroundColor: '#99cc60',
     },
