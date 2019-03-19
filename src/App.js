@@ -6,6 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import NavContainer from './components/nav/NavContainer';
 import HeaderContainer from './components/header/HeaderContainer';
 import JobDescriptionContainer from './components/job-description/JobDescriptionContainer';
+import FaqSection from './components/faq/FaqSection';
 
 const theme = createMuiTheme({
   palette: {
@@ -43,6 +44,7 @@ class App extends Component {
           <main>
             <Route exact path='/' component={JobDescriptionContainer} />
           </main>
+          <FaqSection />
         </div>
       </MuiThemeProvider>
     );

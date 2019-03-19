@@ -20,22 +20,22 @@ class SocialMediaBtns extends React.Component {
     return (
       <div className={classes.root}>
         <div className={classes.iconBorder}>
-          <a href="https://linkedin.com/" target="_blank">
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'fab fa-linkedin-in')} color="primary" />
           </a>
         </div>
         <div className={classes.iconBorder}>
-          <a href="https://facebook.com/" target="_blank">
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'fab fa-facebook-square')} color="primary" />
           </a>
         </div>
         <div className={classes.iconBorder}>
-          <a href="https://twitter.com/" target="_blank">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'fab fa-twitter')} color="primary" />
           </a>
         </div>
         <div className={classes.iconBorder}>
-          <a href="https://gmail.com/" target="_blank">
+          <a href="https://gmail.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'far fa-envelope')} color="primary" />
           </a>
         </div>

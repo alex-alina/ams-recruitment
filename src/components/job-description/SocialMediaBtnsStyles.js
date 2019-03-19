@@ -4,7 +4,7 @@ export const styles = theme => ({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     flexWrap: 'wrap',
-    marginBottom: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 2,
   },
   iconBorder: {
     borderRadius: '50px',
