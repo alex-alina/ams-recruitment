@@ -8,6 +8,8 @@ import HeaderContainer from './components/header/HeaderContainer';
 import JobDescriptionContainer from './components/job-description/JobDescriptionContainer';
 import FaqSection from './components/faq/FaqSection';
 import Footer from './components/footer/Footer';
+import FormContainer from './components/form/FormContainer';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -81,6 +83,7 @@ class App extends Component {
           <HeaderContainer />
           <main>
             <Route exact path='/' component={JobDescriptionContainer} />
+            <Route exact path='/application-form' component={FormContainer} />
           </main>
           <FaqSection />
           <Footer />
