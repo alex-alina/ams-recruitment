@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { loadCSS } from 'fg-loadcss/src/loadCSS';
@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
 import { styles } from './SocialMediaBtnsStyles';
 
-class SocialMediaBtns extends React.Component {
+class SocialMediaBtns extends PureComponent {
   componentDidMount() {
     loadCSS(
       'https://use.fontawesome.com/releases/v5.4.1/css/all.css',
@@ -20,22 +20,22 @@ class SocialMediaBtns extends React.Component {
     return (
       <div className={classes.root}>
         <div className={classes.iconBorder}>
-          <a href="https://linkedin.com/" target="_blank">
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'fab fa-linkedin-in')} color="primary" />
           </a>
         </div>
         <div className={classes.iconBorder}>
-          <a href="https://facebook.com/" target="_blank">
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'fab fa-facebook-square')} color="primary" />
           </a>
         </div>
         <div className={classes.iconBorder}>
-          <a href="https://twitter.com/" target="_blank">
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'fab fa-twitter')} color="primary" />
           </a>
         </div>
         <div className={classes.iconBorder}>
-          <a href="https://gmail.com/" target="_blank">
+          <a href="https://gmail.com/" target="_blank" rel="noopener noreferrer">
             <Icon className={classNames(classes.icon, 'far fa-envelope')} color="primary" />
           </a>
         </div>
