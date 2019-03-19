@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { loadCSS } from 'fg-loadcss/src/loadCSS';
@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
 import { styles } from './SocialMediaBtnsStyles';
 
-class SocialMediaBtns extends React.Component {
+class SocialMediaBtns extends PureComponent {
   componentDidMount() {
     loadCSS(
       'https://use.fontawesome.com/releases/v5.4.1/css/all.css',

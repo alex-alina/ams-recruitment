@@ -1,6 +1,7 @@
 export const styles = theme => ({
   root: {
     textAlign: 'left',
+    marginBottom: theme.spacing.unit * 2.25,
     width: '50%',
     margin: 'auto',
     [theme.breakpoints.down('sm')]: {
