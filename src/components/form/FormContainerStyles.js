@@ -9,8 +9,6 @@ export const styles = theme => ({
       width: '70%',
     },
   },
-  formTitle: {
-    color: theme.palette.primary.main,
-  },
+  
 
 });
