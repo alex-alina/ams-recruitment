@@ -2,10 +2,10 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export const styles = theme => ({
   root: {
-    // position: 'fixed',
-    // top: 0,
+    position: 'fixed',
+    top: 0,
     width: '100%',
-    zIndex: 4000,
+    zIndex: 2000,
   },
   grow: {
     flexGrow: 1,
@@ -22,15 +22,18 @@ export const styles = theme => ({
     width: '40%',
     display: 'flex',
     justifyContent: 'space-evenly',
+    outline: 'none',
   },
   navLi: {
     alignContent: 'center',
+    outline: 'none',
   },
   navLinkFont: {
     fontWeight: '300',
     '&:hover': {
       fontWeight: '500',
     },
+    outline: 'none',
   },
   search: {
     position: 'relative',
