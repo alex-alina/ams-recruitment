@@ -9,6 +9,4 @@ export const styles = theme => ({
       width: '70%',
     },
   },
-  
-
 });

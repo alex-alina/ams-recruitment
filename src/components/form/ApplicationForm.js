@@ -12,11 +12,7 @@ class ApplicationForm extends PureComponent {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({
-      ...this.state,
-      confirmApplication: true,
-    });
-    this.props.onSubmit(this.state.confirmApplication);
+    this.props.onSubmit(true);
     this.setState({
       fullName: "",
       email: "",
@@ -44,6 +40,7 @@ class ApplicationForm extends PureComponent {
       <div className={classes.root}>
         <Typography className={classes.formTitle} variant="h5">Application Form</Typography>
         <form className={classes.form} onSubmit={this.handleSubmit} autocomplete="off" noValidate>
+
           {/* Personal information */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
@@ -68,7 +65,6 @@ class ApplicationForm extends PureComponent {
                 }}
                 className={classes.textField}
               />
-
               <TextField
                 required
                 id="email"
@@ -87,7 +83,6 @@ class ApplicationForm extends PureComponent {
                 }}
                 className={classes.textField}
               />
-
               <TextField
                 required
                 id="phone"
@@ -107,7 +102,6 @@ class ApplicationForm extends PureComponent {
                 }}
                 className={classes.textField}
               />
-
               <TextField
                 required
                 id="date"
@@ -128,6 +122,7 @@ class ApplicationForm extends PureComponent {
               <RadioBtns />
             </div>
           </div>
+
           {/* Address */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
@@ -152,47 +147,44 @@ class ApplicationForm extends PureComponent {
                 }}
                 className={classes.textField}
               />
-
-              <div className={classes.homeId}>
-                <TextField
-                  required
-                  id="house-number"
-                  label="House number"
-                  type="number"
-                  name="houseNum"
-                  value={this.state.houseNum || ''}
-                  onChange={this.handleChange}
-                  placeholder="House number"
-                  style={{ margin: 12 }}
-                  fullWidth
-                  margin="normal"
-                  variant="outlined"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  className={classes.textField}
-                />
-                <TextField
-                  required
-                  id="zip-code"
-                  label="Zip code"
-                  type="text"
-                  name="zipCode"
-                  value={this.state.zipCode || ''}
-                  onChange={this.handleChange}
-                  placeholder="Zip code"
-                  pattern="/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i;"
-                  style={{ margin: 12 }}
-                  fullWidth
-                  margin="normal"
-                  variant="outlined"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  className={classes.textFieldZip}
-                />
-              </div>
-
+              <TextField
+                required
+                id="house-number"
+                label="House number"
+                type="number"
+                name="houseNum"
+                value={this.state.houseNum || ''}
+                onChange={this.handleChange}
+                placeholder="House number"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+                autocomplete="off"
+              />
+              <TextField
+                required
+                id="zip-code"
+                label="Zip code"
+                type="text"
+                name="zipCode"
+                value={this.state.zipCode || ''}
+                onChange={this.handleChange}
+                placeholder="Zip code"
+                pattern="/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i;"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textFieldZip}
+              />
               <TextField
                 required
                 id="city"
@@ -214,7 +206,7 @@ class ApplicationForm extends PureComponent {
             </div>
           </div>
 
-          {/* second information category */}
+          {/* Resume */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
               <Typography className={classes.categoryTitleTxt} variant="h6">CV / Resume</Typography>
@@ -292,21 +284,5 @@ ApplicationForm.propTypes = {
 
 export default withStyles(styles, { theme: true })(ApplicationForm);
 
-
-
-
-
-// <label htmlFor="resume">
-// <Button
-//   variant="contained"
-//   color="primary"
-//   size="small"
-//   component="span"
-//   className={classes.button}
-// >
-//   Upload file
-// </Button>
-// <span>We accept PDF, DOC, DOCX, RTF and TXT files</span>
-// </label>
 
 

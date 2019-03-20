@@ -9,7 +9,7 @@ function HeaderJobTitle(props) {
   const { classes } = props;
   return (
     <div>
-      <Paper className={classes.root} elevation={24}>
+      <Paper className={classes.root} elevation={24} >
         <Typography className={classes.title}  >
           Purchasing Assistant
         </Typography>

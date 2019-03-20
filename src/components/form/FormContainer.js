@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { styles } from './FormContainerStyles';
 import ApplicationForm from './ApplicationForm';
 import ThankYouMessage from '../thank-you-msg/ThankYouMessage';
-
 
 class FormContainer extends PureComponent {
   state = {
@@ -24,11 +23,11 @@ class FormContainer extends PureComponent {
     return (
       <div className={classes.root}>
         {!this.state.renderThanks ? <ApplicationForm onSubmit={this.handleSubmit} /> : <ThankYouMessage />}
-        {/* <div className={classes.positionBtn}>
-          <Button variant="contained" size="large" color="primary" className={classes.button} component={Link} to="/application-form">
+        <div className={classes.positionBtn}>
+          <Button variant="outlined" size="large" color="primary" className={classes.button} component={Link} to="/">
             Back
           </Button>
-        </div> */}
+        </div>
       </div>
     );
   }

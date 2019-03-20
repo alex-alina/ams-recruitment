@@ -53,16 +53,11 @@ export const styles = theme => ({
       width: '100%',
     },
   },
-  // homeId: {
-  //   width: '100%',
-  //   display: 'flex',
-  //   justifyContent: 'space-between',
-  // },
   positionSubmitBtn: {
     width: '300px',
     margin: 'auto',
-    paddingTop: theme.spacing.unit * 5,
-    paddingBottom: theme.spacing.unit * 4,
+    paddingTop: theme.spacing.unit * 4,
+    paddingBottom: theme.spacing.unit * 5,
     display: 'flex',
     justifyContent: 'center',
   },
