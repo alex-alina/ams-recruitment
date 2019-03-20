@@ -27,7 +27,10 @@ export const styles = theme => ({
     alignContent: 'center',
   },
   navLinkFont: {
-    fontWeight: '400',
+    fontWeight: '300',
+    '&:hover': {
+      fontWeight: '500',
+    },
   },
   search: {
     position: 'relative',
