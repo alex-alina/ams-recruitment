@@ -1,7 +1,7 @@
 export const styles = {
   root: {
     position: 'fixed',
-    top: '56px',
+    top: 0,
     left: 0,
     bottom: 0,
     paddingLeft: '4vmin',
@@ -13,9 +13,10 @@ export const styles = {
     backgroundColor: '#007769',
     color: '#fff',
     textAlign: 'left',
-    zIndex: 1600,
+    zIndex: 400,
+    marginTop: '56px',
   },
- 
+
   leftNavLink: {
     paddingTop: 15,
     paddingBottom: 5,
