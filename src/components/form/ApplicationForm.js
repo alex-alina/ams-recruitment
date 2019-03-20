@@ -3,18 +3,25 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { styles } from './ApplicationFormStyles';
+import { TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import RadioBtns from './RadioBtns';
 
 class ApplicationForm extends PureComponent {
   state = {}
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(true);
     this.setState({
       fullName: "",
       email: "",
       phone: "",
       birthDate: "",
+      street: "",
+      houseNum: "",
+      zipCode: "",
+      city: "",
       resume: "",
       coverLetter: "",
     });
@@ -31,110 +38,240 @@ class ApplicationForm extends PureComponent {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <form className={classes.form} onSubmit={this.handleSubmit} /*noValidate*/>
-          {/* first information category */}
+        <Typography className={classes.formTitle} variant="h5">Application Form</Typography>
+        <form className={classes.form} onSubmit={this.handleSubmit} autocomplete="off" noValidate>
+
+          {/* Personal information */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
               <Typography className={classes.categoryTitleTxt} variant="h6">Personal Information</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <label>
-                Full Name
-                <input
-                  type="text"
-                  name="fullName"
-                  value={this.state.fullName || ''}
-                  onChange={this.handleChange}
-                  placeholder="Your full name"
-                  autocomplete="off"
-                />
-              </label>
-              <label>
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  value={this.state.email || ''}
-                  onChange={this.handleChange}
-                  placeholder="Your email address"
-                  required
-                  autocomplete="off"
-                />
-              </label>
-              <label>
-                Phone
-                <input
-                  type="tel"
-                  name="phone"
-                  pattern="[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{3}"
-                  value={this.state.phone || ''}
-                  onChange={this.handleChange}
-                  placeholder="06-55-333-444"
-                  required
-                  autocomplete="off"
-                />
-              </label>
-              <label>
-                Birth Date
-                <input
-                  type="date"
-                  name="birthDate"
-                  value={this.state.birthDate || ''}
-                  onChange={this.handleChange}
-                  placeholder="Your date of birth"
-                  required
-                  autocomplete="off"
-                />
-              </label>
+              <TextField
+                required
+                id="full-name"
+                label="Full Name"
+                type="text"
+                name="fullName"
+                value={this.state.fullName || ''}
+                onChange={this.handleChange}
+                placeholder="Your full name"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+              />
+              <TextField
+                required
+                id="email"
+                label="Email"
+                type="email"
+                name="email"
+                value={this.state.email || ''}
+                onChange={this.handleChange}
+                placeholder="Your email address"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+              />
+              <TextField
+                required
+                id="phone"
+                label="Phone"
+                type="tel"
+                name="phone"
+                value={this.state.phone || ''}
+                onChange={this.handleChange}
+                placeholder="06-12-345-678"
+                pattern="[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{3}"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+              />
+              <TextField
+                required
+                id="date"
+                label="Birth Date"
+                type="date"
+                name="birthDate"
+                value={this.state.birthDate || "2000-01-12"}
+                onChange={this.handleChange}
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              <RadioBtns />
             </div>
           </div>
-          {/* second information category */}
+
+          {/* Address */}
+          <div className={classes.informationCategory}>
+            <div className={classes.categoryTitle}>
+              <Typography className={classes.categoryTitleTxt} variant="h6">Current Address</Typography>
+            </div>
+            <div className={classes.formSubsection}>
+              <TextField
+                required
+                id="street"
+                label="Street"
+                type="text"
+                name="street"
+                value={this.state.street || ''}
+                onChange={this.handleChange}
+                placeholder="Street name"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+              />
+              <TextField
+                required
+                id="house-number"
+                label="House number"
+                type="number"
+                name="houseNum"
+                value={this.state.houseNum || ''}
+                onChange={this.handleChange}
+                placeholder="House number"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+                autocomplete="off"
+              />
+              <TextField
+                required
+                id="zip-code"
+                label="Zip code"
+                type="text"
+                name="zipCode"
+                value={this.state.zipCode || ''}
+                onChange={this.handleChange}
+                placeholder="Zip code"
+                pattern="/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i;"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textFieldZip}
+              />
+              <TextField
+                required
+                id="city"
+                label="City"
+                type="text"
+                name="city"
+                value={this.state.city || ''}
+                onChange={this.handleChange}
+                placeholder="City"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+              />
+            </div>
+          </div>
+
+          {/* Resume */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
               <Typography className={classes.categoryTitleTxt} variant="h6">CV / Resume</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <label>
-                {/* CV / Resume */}
-                <input
-                  type="file"
-                  name="resume"
-                  value={this.state.resume || ''}
-                  accept=".pdf, .doc, .docx, .rtf, .txt"
-                  onChange={this.handleChange}
-                  placeholder="Upload your CV or resume file"
-                  required
-                  autocomplete="off"
-                />
-              </label>
+              <TextField
+                required
+                id="resume"
+                type="file"
+                name="resume"
+                value={this.state.resume || ''}
+                accept=".pdf, .doc, .docx, .rtf, .txt"
+                onChange={this.handleChange}
+                placeholder="City"
+                style={{ margin: 12 }}
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+                helperText="We accept PDF, DOC, DOCX, RTF and TXT files"
+              />
             </div>
           </div>
-          {/* third information category */}
+
+          {/* Cover letter */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
               <Typography className={classes.categoryTitleTxt} variant="h6">Cover Letter</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <label>
-                {/* Cover Letter */}
-                <input
-                  type="text"
-                  name="coverLetter"
-                  value={this.state.coverLetter || ''}
-                  onChange={this.handleChange}
-                  maxLength="500"
-                  minLength="200"
-                  size="30"
-                  placeholder="Insert your cover letter here"
-                  required
-                  autocomplete="off"
-                />
-              </label>
+              <TextField
+                required
+                id="cover-letter"
+                label="Cover Leter"
+                type="text"
+                name="motivation"
+                value={this.state.motivation || ''}
+                onChange={this.handleChange}
+                style={{ margin: 12 }}
+                multiline
+                rows="5"
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField}
+                helperText="Insert your cover letter here"
+              />
             </div>
           </div>
+
           {/* submit section */}
-          <input className="submit-btn" type="submit" value="Submit Application" />
-          {/* <button type="submit">Submit Apllication</button> */}
+          <div className={classes.positionSubmitBtn}>
+            <label htmlFor="submit">
+              <Button variant="contained" color="primary" size="large" component="span" className={classes.submitBtn}>
+                Submit Application
+              </Button>
+            </label>
+            <input id="submit" className="submit-btn" type="submit" value="Submit Application" style={{ display: "none" }} />
+          </div>
         </form>
       </div>
     );
@@ -146,9 +283,6 @@ ApplicationForm.propTypes = {
 };
 
 export default withStyles(styles, { theme: true })(ApplicationForm);
-
-
-
 
 
 

@@ -7,7 +7,8 @@ export const styles = theme => ({
     right: '25%',
     margin: 'auto',
     width: '50%',
-    backgroundColor: '#00000073',
+    // backgroundColor: '#00000073',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
     [theme.breakpoints.down('sm')]: {

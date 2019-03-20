@@ -2,6 +2,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export const styles = theme => ({
   root: {
+    // position: 'fixed',
+    // top: 0,
     width: '100%',
     zIndex: 4000,
   },
