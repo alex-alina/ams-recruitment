@@ -66,6 +66,11 @@ export const theme = createMuiTheme({
         flexWrap: 'wrap',
         flexDirection: 'row',
       }
-    }
+    },
+    MuiPaper: {
+      elevation4: {
+        boxShadow: 'none',
+      }
+    },
   }
 });

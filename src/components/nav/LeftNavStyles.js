@@ -20,6 +20,9 @@ export const styles = {
   leftNavLink: {
     paddingTop: 15,
     paddingBottom: 5,
-    fontWeight: '400',
+    fontWeight: '300',
+    '&:hover': {
+      fontWeight: '500',
+    },
   }
 };
