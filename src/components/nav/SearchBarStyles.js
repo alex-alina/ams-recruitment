@@ -9,6 +9,7 @@ export const styles = theme => ({
       width: 'auto',
     },
   },
+
   searchIcon: {
     width: theme.spacing.unit * 9,
     height: '100%',
@@ -19,10 +20,12 @@ export const styles = theme => ({
     justifyContent: 'center',
     color:'#ffffffCC'
   },
+
   inputRoot: {
     color: '#fff',
     width: '100%',
   },
+  
   inputInput: {
     paddingTop: theme.spacing.unit,
     paddingRight: theme.spacing.unit,

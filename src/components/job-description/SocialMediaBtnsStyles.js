@@ -6,6 +6,7 @@ export const styles = theme => ({
     flexWrap: 'wrap',
     marginBottom: theme.spacing.unit * 2,
   },
+
   iconBorder: {
     width: '38px',
     height: '38px',
@@ -19,6 +20,7 @@ export const styles = theme => ({
       backgroundColor: '#99cc60',
     },
   },
+  
   icon: {
     margin: theme.spacing.unit * 1,
   },

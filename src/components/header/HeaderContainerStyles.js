@@ -3,6 +3,7 @@ export const styles = () => ({
     position: 'relative',
     marginTop: '56px',
   },
+  
   media: {
     height: 280,
   },
