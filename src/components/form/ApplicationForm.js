@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { styles } from './ApplicationFormStyles';
-import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import RadioBtns from './RadioBtns';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 class ApplicationForm extends PureComponent {
   state = {}
+
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -22,15 +30,8 @@ class ApplicationForm extends PureComponent {
       houseNum: "",
       zipCode: "",
       city: "",
-      resume: "",
+      file: "",
       coverLetter: "",
-    });
-  }
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
     });
   }
 
@@ -39,7 +40,7 @@ class ApplicationForm extends PureComponent {
     return (
       <div className={classes.root}>
         <Typography className={classes.formTitle} variant="h5">Application Form</Typography>
-        <form className={classes.form} onSubmit={this.handleSubmit} autocomplete="off" noValidate>
+        <ValidatorForm ref="form" onSubmit={this.handleSubmit} className={classes.form} autocomplete="off" noValidate>
 
           {/* Personal information */}
           <div className={classes.informationCategory}>
@@ -47,7 +48,7 @@ class ApplicationForm extends PureComponent {
               <Typography className={classes.categoryTitleTxt} variant="h6">Personal Information</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <TextField
+              <TextValidator
                 required
                 id="full-name"
                 label="Full Name"
@@ -64,8 +65,10 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textField}
+                validators={['required', 'minStringLength: 5']}
+                errorMessages={['Required field', 'Please enter min 5 characters.']}
               />
-              <TextField
+              <TextValidator
                 required
                 id="email"
                 label="Email"
@@ -82,8 +85,10 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textField}
+                validators={['required', 'isEmail']}
+                errorMessages={['Required field', 'Please enter a valid email address.']}
               />
-              <TextField
+              <TextValidator
                 required
                 id="phone"
                 label="Phone"
@@ -91,8 +96,7 @@ class ApplicationForm extends PureComponent {
                 name="phone"
                 value={this.state.phone || ''}
                 onChange={this.handleChange}
-                placeholder="06-12-345-678"
-                pattern="[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{3}"
+                placeholder="061-234-5678"
                 style={{ margin: 12 }}
                 fullWidth
                 margin="normal"
@@ -101,14 +105,16 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textField}
+                validators={['required', 'matchRegexp:[0-9]{3}-[0-9]{3}-[0-9]{4}']}
+                errorMessages={['Required field', 'Phone number format 061-234-5678.']}
               />
-              <TextField
+              <TextValidator
                 required
                 id="date"
                 label="Birth Date"
                 type="date"
                 name="birthDate"
-                value={this.state.birthDate || "2000-01-12"}
+                value={this.state.birthDate || ""}
                 onChange={this.handleChange}
                 style={{ margin: 12 }}
                 fullWidth
@@ -118,6 +124,8 @@ class ApplicationForm extends PureComponent {
                 InputLabelProps={{
                   shrink: true,
                 }}
+                validators={['required']}
+                errorMessages={['Required field']}
               />
               <RadioBtns />
             </div>
@@ -129,7 +137,7 @@ class ApplicationForm extends PureComponent {
               <Typography className={classes.categoryTitleTxt} variant="h6">Current Address</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <TextField
+              <TextValidator
                 required
                 id="street"
                 label="Street"
@@ -146,12 +154,14 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textField}
+                validators={['required', 'minStringLength: 4']}
+                errorMessages={['Required field', 'Please enter min 4 characters']}
               />
-              <TextField
+              <TextValidator
                 required
                 id="house-number"
                 label="House number"
-                type="number"
+                type="text"
                 name="houseNum"
                 value={this.state.houseNum || ''}
                 onChange={this.handleChange}
@@ -165,8 +175,10 @@ class ApplicationForm extends PureComponent {
                 }}
                 className={classes.textField}
                 autocomplete="off"
+                validators={['required', 'minStringLength:1', 'matchRegexp:[1-9]{1,}[a-zA-Z]*']}
+                errorMessages={['Required field', 'Please start with min 1 numeric character']}
               />
-              <TextField
+              <TextValidator
                 required
                 id="zip-code"
                 label="Zip code"
@@ -175,7 +187,7 @@ class ApplicationForm extends PureComponent {
                 value={this.state.zipCode || ''}
                 onChange={this.handleChange}
                 placeholder="Zip code"
-                pattern="/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i;"
+                pattern="/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i"
                 style={{ margin: 12 }}
                 fullWidth
                 margin="normal"
@@ -184,8 +196,10 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textFieldZip}
+                validators={['required', 'matchRegexp:^[1-9][0-9]{3} *(?!sa|sd|ss|SA|SA|SS)[a-zA-Z]{0,2}$']}
+                errorMessages={['Required field', 'Please enter a valid Dutch zip code']}
               />
-              <TextField
+              <TextValidator
                 required
                 id="city"
                 label="City"
@@ -202,6 +216,8 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textField}
+                validators={['required', 'minStringLength:4']}
+                errorMessages={['Required field', 'Please enter min 4 characters']}
               />
             </div>
           </div>
@@ -212,15 +228,14 @@ class ApplicationForm extends PureComponent {
               <Typography className={classes.categoryTitleTxt} variant="h6">CV / Resume</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <TextField
+              <TextValidator
                 required
-                id="resume"
-                type="file"
-                name="resume"
-                value={this.state.resume || ''}
-                accept=".pdf, .doc, .docx, .rtf, .txt"
+                id="file"
                 onChange={this.handleChange}
-                placeholder="City"
+                type="file"
+                name="file"
+                value={this.state.file || ''}
+                accept=".doc,.docx,.pdf,.rtf,.txt"
                 style={{ margin: 12 }}
                 fullWidth
                 margin="normal"
@@ -230,6 +245,10 @@ class ApplicationForm extends PureComponent {
                 }}
                 className={classes.textField}
                 helperText="We accept PDF, DOC, DOCX, RTF and TXT files"
+                validators={['required']}
+                errorMessages={['Required field']}
+              // validators={['required','isFile', 'allowedExtensions:application/pdf,.doc,.docx,.rtf,.txt']}
+              // errorMessages={['Required field', 'Invalid File. We only accept PDF, DOC, DOCX, RTF and TXT files', 'Size must not exceed 1MB', 'We only accept PDF, DOC, DOCX, RTF and TXT files']}
               />
             </div>
           </div>
@@ -240,13 +259,13 @@ class ApplicationForm extends PureComponent {
               <Typography className={classes.categoryTitleTxt} variant="h6">Cover Letter</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <TextField
+              <TextValidator
                 required
                 id="cover-letter"
                 label="Cover Leter"
                 type="text"
-                name="motivation"
-                value={this.state.motivation || ''}
+                name="coverLetter"
+                value={this.state.coverLetter || ''}
                 onChange={this.handleChange}
                 style={{ margin: 12 }}
                 multiline
@@ -258,7 +277,9 @@ class ApplicationForm extends PureComponent {
                   shrink: true,
                 }}
                 className={classes.textField}
-                helperText="Insert your cover letter here"
+                helperText="Insert your cover letter here."
+                validators={['required', 'minStringLength:600', 'maxStringLength: 2200']}
+                errorMessages={['Required field', 'Please enter min 600 characters', 'Please use a max of 2200 characters']}
               />
             </div>
           </div>
@@ -272,7 +293,7 @@ class ApplicationForm extends PureComponent {
             </label>
             <input id="submit" className="submit-btn" type="submit" value="Submit Application" style={{ display: "none" }} />
           </div>
-        </form>
+        </ValidatorForm>
       </div>
     );
   }
@@ -283,6 +304,3 @@ ApplicationForm.propTypes = {
 };
 
 export default withStyles(styles, { theme: true })(ApplicationForm);
-
-
-
