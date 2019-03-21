@@ -8,6 +8,7 @@ export const styles = theme => ({
     flexWrap: 'wrap',
     marginTop: theme.spacing.unit * 4,
   },
+
   footerSection: {
     width: '33%',
     maxWidth: '200px',
@@ -16,13 +17,16 @@ export const styles = theme => ({
       width: '90%',
     },
   },
+
   sectionTitle: {
     textAlign: 'left',
     color: '#fff',
   },
+
   sectionDivider: {
     backgroundColor: '#ffffffBF',
   },
+  
   listItemTxt: {
     color: theme.palette.common.white,
   },

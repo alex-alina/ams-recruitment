@@ -10,6 +10,7 @@ export const styles = theme => ({
     backgroundColor: '#ccff90',
     borderRadius: '4px',
   },
+
   thankYouMsg: {
     color: '#007769',
     fontSize: 'calc(1rem + 1vw)',
@@ -23,6 +24,7 @@ export const styles = theme => ({
       lineHeight: '2rem',
     },
   },
+
   companySignature: {
     alignCenter: 'center',
     color: '#007769',
@@ -34,6 +36,7 @@ export const styles = theme => ({
       fontSize: 'calc(0.75rem + 0.5vw)',
       lineHeight: '3rem',
     },
+    
     icon: {
       marginTop: theme.spacing.unit * 6,
     }

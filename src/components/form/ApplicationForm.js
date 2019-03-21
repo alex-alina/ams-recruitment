@@ -6,18 +6,18 @@ import { styles } from './ApplicationFormStyles';
 import Button from '@material-ui/core/Button';
 import RadioBtns from './RadioBtns';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { InputLabel } from '@material-ui/core';
 
 class ApplicationForm extends PureComponent {
   state = {}
 
   handleChange = (event) => {
-    event.preventDefault();
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   }
-
+  
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmit(true);
@@ -225,31 +225,36 @@ class ApplicationForm extends PureComponent {
           {/* Resume */}
           <div className={classes.informationCategory}>
             <div className={classes.categoryTitle}>
-              <Typography className={classes.categoryTitleTxt} variant="h6">CV / Resume</Typography>
+              <Typography className={classes.cvCategoryTitleTxt} variant="h6">CV / Resume *</Typography>
             </div>
             <div className={classes.formSubsection}>
-              <TextValidator
-                required
-                id="file"
-                onChange={this.handleChange}
-                type="file"
-                name="file"
-                value={this.state.file || ''}
-                accept=".doc,.docx,.pdf,.rtf,.txt"
-                style={{ margin: 12 }}
-                fullWidth
-                margin="normal"
-                variant="outlined"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField}
-                helperText="We accept PDF, DOC, DOCX, RTF and TXT files"
-                validators={['required']}
-                errorMessages={['Required field']}
-              // validators={['required','isFile', 'allowedExtensions:application/pdf,.doc,.docx,.rtf,.txt']}
-              // errorMessages={['Required field', 'Invalid File. We only accept PDF, DOC, DOCX, RTF and TXT files', 'Size must not exceed 1MB', 'We only accept PDF, DOC, DOCX, RTF and TXT files']}
-              />
+              <div className={classes.positionUploadBtn}>
+                <input
+                  required
+                  id="file"
+                  onChange={this.handleChange}
+                  type="file"
+                  name="file"
+                  value={this.state.file || ''}
+                  accept=".doc,.docx,.pdf,.rtf,.txt"
+                  style={{ margin: 12 }}
+                  margin="normal"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.input}
+                  // eslint-disable-next-line
+                  style={{ "display": "none" }}
+                  // validators={['required']}
+                  // errorMessages={['Required field']}
+                />
+                <InputLabel htmlFor="file">
+                  <Button variant="outlined" color="primary" size="small" component="span" className={classes.uploadButton}>
+                    Add file
+                  </Button>
+                </InputLabel>
+                {this.state.file ? <InputLabel className={classes.uploadTxt}>{`You uploaded: ${this.state.file.slice(12)}`}</InputLabel> : <InputLabel className={classes.uploadTxt}>We accept PDF, DOC, DOCX, RTF and TXT files.</InputLabel>}
+              </div>
             </div>
           </div>
 
@@ -286,11 +291,11 @@ class ApplicationForm extends PureComponent {
 
           {/* submit section */}
           <div className={classes.positionSubmitBtn}>
-            <label htmlFor="submit">
+            <InputLabel htmlFor="submit">
               <Button variant="contained" color="primary" size="large" component="span" className={classes.submitBtn}>
                 Submit Application
               </Button>
-            </label>
+            </InputLabel>
             <input id="submit" className="submit-btn" type="submit" value="Submit Application" style={{ display: "none" }} />
           </div>
         </ValidatorForm>

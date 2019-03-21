@@ -20,6 +20,7 @@ export const styles = theme => ({
       margin: 'auto',
       width: '90%',
     },
+
     [theme.breakpoints.down('sm')]: {
       position: 'absolute',
       top: '25%',
@@ -30,12 +31,14 @@ export const styles = theme => ({
       width: '85%',
     },
   },
+
   title: {
     color: '#fff',
     fontSize: 'calc(1.5rem + 1vw)',
     alignCenter: 'center',
     letterSpacing: 1.5,
   },
+  
   subtitle: {
     alignCenter: 'center',
     color: '#fff',

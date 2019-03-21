@@ -11,14 +11,17 @@ export const styles = theme => ({
       width: '70%',
     },
   },
+
   sectionTitle: {
     color:'#007769',
     lineHeight: '2.5rem',
   },
+
   faqDivider: {
     marginTop: theme.spacing.unit * 0.25,
     marginBottom: theme.spacing.unit * 2.25,
   },
+  
   heading: {
     color:'#007769',
     fontWeight: 500,
