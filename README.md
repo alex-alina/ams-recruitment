@@ -1,8 +1,7 @@
 
 ## Style.inc Job Posting Page - Client
 
-## Demo
-[Demo on Netlify ](https://optimistic-lamarr-981db4.netlify.com/)
+## [Demo on Netlify ](https://optimistic-lamarr-981db4.netlify.com/)
 
 ## Description
 
@@ -10,7 +9,7 @@ This is the client for a job posting page. When users click **Apply** they are s
 
 After users fill in the form and click **Submit** they see a "Thank you" message instead of the form.
 
-The goal of this project was to create a responsive, cross device/browsers compatible job page and application form.
+The goal of this project was to create a responsive, cross device/browser compatible job page and application form.
 
 ## Tech stack
 
@@ -39,27 +38,27 @@ The goal of this project was to create a responsive, cross device/browsers compa
 
 ## Design decisions
  
-* To insure cross device/browser compatibility and improve development speed I decided to use:
+* To ensure cross device/browser compatibility and improve development speed I decided to use:
   * React: supports all modern browsers. Support for Internet Explorer 9, 10, and 11 requires polyfills.
   * React-app-polyfill package: to add support for IE 11.
   * Material-UI a React UI framework that supports the latest, stable releases of all major browsers, including IE 11.
 * Task runners, build tools and process automation:
   * `create-react-app` comes with tools like Webpack and Babel.
-    * It uses Yarn as package manager which automatically runs the build script. 
+    * It uses Yarn as package manager which automatically runs the `build` script. 
   * Netlify for automatic deployment (configured with GitHub)
     * On every new commit to master (direct commit or branch merge) the new master will be automatically deployed on Netlify.
-* Input validation: I decided to use `react-material-ui-form-validator` package:
+* Form input validation: I decided to use `react-material-ui-form-validator` package:
   * It covered most of the validation needs. 
   * It also gave me enough flexibility to use regEx for Dutch Zip Code and other validations.
 * Layout: I opted to use Flexbox since the page has a simple UI where Flexbox can easily support a responsive layout.
-* Accessibility:
+* Accessibility includes:
   * Semantic HTML
   * Material-UI covers accessibility aspects on its components.
   * Used Material Design color tool to choose the UI's color palette and measure the accessibility level of color combination.
 
 ## Future development and improvements
 
-* Improve lists' position and style in navigation and footer for IE11
+* Improve lists' positioning and style in navigation and footer for IE11
 * Fix CV/Resume upload validation (require attribute does't work properly)
 * Font embedding
 * Remove border that appears on click around navigation links in Firefox 
