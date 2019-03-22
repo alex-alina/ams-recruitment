@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Style.inc Job Posting Page - Client
 
-In the project directory, you can run:
+## Demo
+[Demo on Netlify ](https://optimistic-lamarr-981db4.netlify.com/)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is the client for a job posting page. When users click **Apply** they are sent to the **Application Form**. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+After users fill in the form and click **Submit** they see a "Thank you" message instead of the form.
 
-### `npm test`
+The goal of this project was to create a responsive, cross device/browsers compatible job page and application form.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech stack
 
-### `npm run build`
+* React
+* Material-UI
+* JavaScript
+* CSS
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* Application page
+* Apply button(s)
+* Responsive Navbar with Hamburger Menu on smaller screens
+* FAQ section
+* Footer with links
+* Application form with input validation 
+* Back button that redirects to main job page
+* Submit button
+* Successful submit "Thank you" message
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup
 
-### `npm run eject`
+* Clone the repository `git clone git@github.com:alex-alina/ams-recruitment.git`
+* Install the dependencies using `yarn install`
+* Start the server using `yarn start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Design decisions
+ 
+* To insure cross device/browser compatibility and improve development speed I decided to use:
+  * React: supports all modern browsers. Support for Internet Explorer 9, 10, and 11 requires polyfills.
+  * React-app-polyfill package: to add support for IE 11.
+  * Material-UI a React UI framework that supports the latest, stable releases of all major browsers, including IE 11.
+* Task runners, build tools and process automation:
+  * `create-react-app` comes with tools like Webpack and Babel.
+    * It uses Yarn as package manager which automatically runs the build script. 
+  * Netlify for automatic deployment (configured with GitHub)
+    * On every new commit to master (direct commit or branch merge) the new master will be automatically deployed on Netlify.
+* Input validation: I decided to use `react-material-ui-form-validator` package:
+  * It covered most of the validation needs. 
+  * It also gave me enough flexibility to use regEx for Dutch Zip Code and other validations.
+* Layout: I opted to use Flexbox since the page has a simple UI where Flexbox can easily support a responsive layout.
+* Accessibility:
+  * Semantic HTML
+  * Material-UI covers accessibility aspects on its components.
+  * Used Material Design color tool to choose the UI's color palette and measure the accessibility level of color combination.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future development and improvements
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Improve lists' position and style in navigation and footer for IE11
+* Fix CV/Resume upload validation (require attribute does't work properly)
+* Font embedding
+* Remove border that appears on click around navigation links in Firefox 
+* Improve grouping of social icons on small screens
+* Use the Search Bar component in top navigation to DRY up code
+* Move text from Job Description component, navigation and footer in a separate file
+* Add the radio buttons inside the form 
+* Add input validation for radio buttons
+* Use just one component for social media buttons for both the section and the footer
+* Improve styling and positioning of the Add file form section
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+MIT Licence - Copyright &copy; 2019 - Alina Rusu.
