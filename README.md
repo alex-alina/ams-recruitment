@@ -1,7 +1,7 @@
 
 ## Style.inc Job Posting Page - Client
 
-## [Demo on Netlify ](https://optimistic-lamarr-981db4.netlify.com/)
+## [Demo on Netlify ](https://career-page.netlify.app/)
 
 ## Description
 
